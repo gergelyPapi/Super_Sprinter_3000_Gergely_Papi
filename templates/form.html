@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Super Sprinter 3000</title>
+    </head>
+    <body>
+    {% if current_entry_information|length > 0 %}
+        <form action="/update_user_story" method="POST">
+        <h1>User Story Manager - Update User Story</h1>
+        <p>
+        <input name="ID" type="hidden" value="{{ current_entry_information[0] }}">
+        </p>
+        <p>
+        <h6>Story Title</h6>
+        <textarea name="Story Title" type="text"  rows="1" cols="20" >{{ current_entry_information[1] }}</textarea>
+        </p>
+        <p>
+        <h6>User Sotry</h6>
+        <textarea name="User Story" type="text"  rows="5" cols="20" >{{ current_entry_information[2] }}</textarea>
+        </p>
+        <p>
+        <h6>Acceptance criteria</h6>
+        <textarea name="Acceptance criteria" type="text"  rows="5" cols="20" >"{{ current_entry_information[3] }}"</textarea>
+        </p>
+        <h6>Business value</h6>
+        <input name="Business value" type="number"  min="100" max="1500" step="100" value="{{ current_entry_information[4] }}" required> 
+        </p>
+        <h6>Estimation(h)</h6>
+        <input name="Estimation" type="number" min="0.5" max="40" step="0.5" value="{{ current_entry_information[5] }}" required> 
+        </p>
+        <h6>Status</h6>
+        <select name="Status">
+            <option type="text" value= "{{ current_entry_information[6] }}">Current: "{{ current_entry_information[6] }}"</option>
+            <option type="text" value="Planning">Planning</option>
+            <option type="text" value="TODO">TODO</option>
+            <option type="text" value="In Progress">In Progress</option>
+            <option type="text" value="Review">Review</option>
+            <option type="text" value="Done">Done</option>
+        </select>
+        <button type="submit" value="Update_story"> Update Story </button> 
+        </form>
+    {% else %}
+        <form action="/save_user_story" method="POST">
+        <h1>User Story Manager - Add new User Story</h1>
+        <p>
+        <h6>Story Title</h6>
+        <textarea name="Story Title" type="text"  rows="1" cols="20"></textarea>
+        </p>
+        <p>
+        <h6>User Sotry</h6>
+        <textarea name="User Story" type="text"  rows="5" cols="20"></textarea>
+        </p>
+        <p>
+        <h6>Acceptance criteria</h6>
+        <textarea name="Acceptance criteria" type="text"  rows="5" cols="20"></textarea>
+        </p>
+        <h6>Business value</h6>
+        <input name="Business value" type="number"  min="100" max="1500" step="100" value="1000" required>
+        </p>
+        <h6>Estimation(h)</h6>
+        <input name="Estimation" type="number" min="0.5" max="40" step="0.5" value="2.5" required>
+        </p>
+        <h6>Status</h6>
+        <select name="Status">
+            <option type="text" value="Planning">Planning</option>
+            <option type="text" value="TODO">TODO</option>
+            <option type="text" value="In Progress">In Progress</option>
+            <option type="text" value="Review">Review</option>
+            <option type="text" value="Done">Done</option>
+        </select>
+        <p>
+        <br>
+        <button type="submit" value="Create_story"> Create </button> 
+        </p
+        </form>
+    {% endif %}
+    </body>
+</html>

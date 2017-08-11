@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Super Sprinter 3000</title>
+    </head>
+    <body>
+        <h1>User Story Manager</h1>
+        <p>
+        <form action="/story"> <button type="submit" value="Add new User Stroy"> Add new User Story </button> </form>
+        </p>
+            <table>
+        <tr>
+            <td style = "width:200px">ID</td>
+            <td style = "width:200px">Story Title</td>
+            <td style = "width:200px">User Story</td>
+            <td style = "width:200px">Acceptance Criteria</td>
+            <td style = "width:200px">Business Value</td>
+            <td style = "width:200px">Estimation</td>
+            <td style = "width:200px">Status</td>
+        </tr>
+    {% if database|length > 0 %}
+        {% for list in database %}
+            <tr>
+                {% for item in list %}
+                <td style = "width:200px"> {{ item }} </td>
+                {% endfor %}
+                <td> <form action="/story/{{ list[0] }}" method="POST"> <button type="submit" value="Update"> Update </button> </form> 
+                    <form action="/remove_user_story" method="POST"> <button type="submit" value="Remove"> Remove </button> </form>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+
+    </body>
+</html>
