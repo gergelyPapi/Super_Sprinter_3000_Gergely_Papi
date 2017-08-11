@@ -21,7 +21,7 @@
         </p>
         <p>
         <h6>Acceptance criteria</h6>
-        <textarea name="Acceptance criteria" type="text"  rows="5" cols="20" >"{{ current_entry_information[3] }}"</textarea>
+        <textarea name="Acceptance criteria" type="text"  rows="5" cols="20" >{{ current_entry_information[3] }}</textarea>
         </p>
         <h6>Business value</h6>
         <input name="Business value" type="number"  min="100" max="1500" step="100" value="{{ current_entry_information[4] }}" required> 
@@ -31,7 +31,7 @@
         </p>
         <h6>Status</h6>
         <select name="Status">
-            <option type="text" value= "{{ current_entry_information[6] }}">Current: "{{ current_entry_information[6] }}"</option>
+            <option type="text" value= "{{ current_entry_information[6] }}">Current: {{ current_entry_information[6] }}</option>
             <option type="text" value="Planning">Planning</option>
             <option type="text" value="TODO">TODO</option>
             <option type="text" value="In Progress">In Progress</option>

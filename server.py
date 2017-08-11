@@ -61,20 +61,12 @@ def update_user_story():
     writer.writerows(replaced_item)
     return redirect('/')
 
+'''
+
 @app.route("/remove_user_story", methods=["POST"])
 def update_user_story():
-    existing_list = csv.reader(open("user_stories.csv"))
-    replaced_item = [item for item in existing_list]
-    print(request.form["Business value"])
-    replaced_item[int(request.form["ID"])-1][1] = request.form["Story Title"]
-    replaced_item[int(request.form["ID"])-1][2] = request.form["User Story"]
-    replaced_item[int(request.form["ID"])-1][3] = request.form["Acceptance criteria"]
-    replaced_item[int(request.form["ID"])-1][4] = request.form["Business value"]
-    replaced_item[int(request.form["ID"])-1][5] = request.form["Estimation"]
-    replaced_item[int(request.form["ID"])-1][6] = request.form["Status"]
-    writer = csv.writer(open("user_stories.csv", 'w'))
-    writer.writerows(replaced_item)
     return redirect('/')
+'''
 
     
 if __name__ == "__main__":
