@@ -65,9 +65,13 @@ def remove_user_story():
     csv_database = read_database("user_stories.csv")
     for row in csv_database:
         if row[0] == request.form["ID"]:
-            writer = csv.writer(open("user_stories.csv", 'w'))
-            print(row)
-            writer.writerows(row)
+            csv_database.remove(row)
+    row_count = 1
+    for row in csv_database:
+        row[0] = row_count
+        row_count += 1
+    writer = csv.writer(open("user_stories.csv", 'w'))
+    writer.writerows(csv_database)
     return redirect('/')
 
     
