@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
+    {% if current_entry_information|length > 0 %}
     <head>
         <meta charset="utf-8">
-        <title>Super Sprinter 3000</title>
+        <title>Super Sprinter 3000 - Edit Story</title>
     </head>
     <body>
-    {% if current_entry_information|length > 0 %}
         <form action="/update_user_story" method="POST">
         <h1>User Story Manager - Update User Story</h1>
         <p>
@@ -41,6 +41,10 @@
         <button type="submit" value="Update_story"> Update Story </button> 
         </form>
     {% else %}
+    <head>
+        <meta charset="utf-8">
+        <title>Super Sprinter 3000 - Add new Story</title>
+    </head>
         <form action="/save_user_story" method="POST">
         <h1>User Story Manager - Add new User Story</h1>
         <p>
