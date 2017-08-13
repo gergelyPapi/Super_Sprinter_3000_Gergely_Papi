@@ -27,7 +27,6 @@ def save_story(story_id):
         if list[0] == story_id:
             for list_item in list:
                 current_entry_information.append(list_item)
-    print(current_entry_information)
     return render_template("form.html", current_entry_information=current_entry_information)
 
 @app.route("/save_user_story", methods=["POST"])
@@ -50,7 +49,6 @@ def save_user_story():
 def update_user_story():
     existing_list = csv.reader(open("user_stories.csv"))
     replaced_item = [item for item in existing_list]
-    print(request.form["Business value"])
     replaced_item[int(request.form["ID"])-1][1] = request.form["Story Title"]
     replaced_item[int(request.form["ID"])-1][2] = request.form["User Story"]
     replaced_item[int(request.form["ID"])-1][3] = request.form["Acceptance criteria"]
@@ -61,12 +59,16 @@ def update_user_story():
     writer.writerows(replaced_item)
     return redirect('/')
 
-'''
 
 @app.route("/remove_user_story", methods=["POST"])
-def update_user_story():
+def remove_user_story():
+    csv_database = read_database("user_stories.csv")
+    for row in csv_database:
+        if row[0] == request.form["ID"]:
+            writer = csv.writer(open("user_stories.csv", 'w'))
+            print(row)
+            writer.writerows(row)
     return redirect('/')
-'''
 
     
 if __name__ == "__main__":

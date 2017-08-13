@@ -26,7 +26,9 @@
                 <td style = "width:200px"> {{ item }} </td>
                 {% endfor %}
                 <td> <form action="/story/{{ list[0] }}" method="POST"> <button type="submit" value="Update"> Update </button> </form> 
-                    <form action="/story/{{ list[0] }}" method="POST"> <button type="submit" value="Remove"> Remove </button> </form>
+                    <form action="/remove_user_story" method="POST"> <button type="submit" value="Remove"> Remove </button> 
+                    <input name="ID" type="hidden" value="{{ list[0] }}">
+                    </form>
                 </td>
             </tr>
         {% endfor %}
